@@ -1,0 +1,2 @@
+7126,Farah,21,Female,compu,3.92
+2762,Yahya,21,Male,compu,3.62

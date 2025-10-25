@@ -27,13 +27,14 @@ public class AdminRole {
         studentsDB.deleteRecord(Student_ID);
     }
 
-    public void DeleteStudent(String Full_Name) {
+    public boolean DeleteStudent(String Full_Name) {
         for (Student student : studentsDB.returnAllRecords()) {
             if (student.getFull_Name().equals(Full_Name)) {
                 studentsDB.deleteRecord(student.getStudent_ID());
-                break;
+                return true;
             }
         }
+        return false;
     }
 
     public void SearchStudent(int Student_ID) {

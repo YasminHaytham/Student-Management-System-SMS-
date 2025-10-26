@@ -6,11 +6,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.List;
 
 public class StudentsDB {
 
     private String filename;
-    private ArrayList<Student> records;
+    private List<Student> records;
     
 
     public String getFilename() {
@@ -27,7 +28,7 @@ public class StudentsDB {
 
     public StudentsDB(String filename) {
         if (filename == null || filename.trim().isEmpty()) {
-
+             throw new IllegalArgumentException("Filename is Empty!!");
         } else {
             this.filename = filename;
         }
@@ -53,7 +54,7 @@ public class StudentsDB {
         }
     }
 
-    public ArrayList<Student> returnAllRecords() {
+    public List<Student> returnAllRecords() {
         return records;
     }
 
@@ -76,7 +77,7 @@ public class StudentsDB {
                 String Gender = parts[3].trim();
                 String Department = parts[4].trim();
                 float GPA = Float.parseFloat(parts[5]);
-                return new Student(Student_ID, Full_Name, age, Gender, Department, GPA);
+                return new Student( Student_ID,Full_Name, age, Gender, Department, GPA);
             } catch (NumberFormatException e) {
                 System.out.println("Error" + e.getMessage());
             }
@@ -87,7 +88,7 @@ public class StudentsDB {
     
    public void insertRecord(Student record) {
         if (contains(record.getStudent_ID())) {
- 
+             throw new IllegalArgumentException("Student with this ID already exists!!");
         } else {
             records.add(record);
         }

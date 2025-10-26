@@ -1,21 +1,40 @@
 package System1;
 
-import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class AdminRole {
-    StudentsDB studentsDB = new StudentsDB("students.txt");
+    static StudentsDB studentsDB = new StudentsDB("Students.txt");
 
     public AdminRole(StudentsDB studentsDB) {
-        this.studentsDB = studentsDB;
+        AdminRole.studentsDB = studentsDB;
     }
 
-    public void AddStudent(int Student_ID, String Full_Name, int age, String Gender, String Department, float GPA) {
-        Student newStudent = new Student(Student_ID, Full_Name, age, Gender, Department, GPA);
+    public void AddStudent( String Full_Name, int age, String Gender, String Department, float GPA) {
+        Student newStudent = new Student ( Full_Name, age, Gender, Department, GPA);
+        studentsDB.readFromFile();
+        createID(newStudent);
         studentsDB.insertRecord(newStudent);
         studentsDB.saveToFile();
     }
+       public static void createID(Student newStudent)
+    {
+        List<Student> records = studentsDB.returnAllRecords();
+        if ( records.isEmpty())
+        {
+            newStudent.setStudent_ID(1000);
+        }
+        else 
+        {
+        Collections.sort(records, Comparator.comparingInt(student -> student.getStudent_ID()));
+        int ID = records.get(records.size()-1).getStudent_ID();
+        newStudent.setStudent_ID(ID+1);
+        }
+        
+    }
 
-    public ArrayList<Student> ViewStudents() {
+    public List<Student> ViewStudents() {
         return studentsDB.returnAllRecords();
     }
 
@@ -50,6 +69,6 @@ public class AdminRole {
     }
 
     public void setStudentsDB(StudentsDB studentsDB) {
-        this.studentsDB = studentsDB;
+        AdminRole.studentsDB = studentsDB;
     }
 }

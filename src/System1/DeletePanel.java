@@ -2,6 +2,8 @@
 package System1;
 
 import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -12,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 public class DeletePanel extends javax.swing.JPanel {
     StudentsDB studentsDB = new StudentsDB("students.txt");
     AdminRole user = new AdminRole(studentsDB);
-    ArrayList<Student> students = user.ViewStudents();
+    List<Student> students = user.ViewStudents();
 
     public DeletePanel() {
         initComponents();

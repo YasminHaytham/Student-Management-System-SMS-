@@ -1,22 +1,14 @@
 
 package System1;
 
-/**
- *
- * @author User
- */
 public class HomePage extends javax.swing.JPanel {
 
-    /**
-     * Creates new form NewJPanel
-     */
     public HomePage() {
         initComponents();
-        setupButtonListeners(); // Add this line
+        setupButtonListeners(); 
     }
 
     private void setupButtonListeners() {
-        // Add action listeners for all buttons
       //  Addbtn.addActionListener(evt -> navigateToPanel(new AddStudentPage()));
         Viewbtn.addActionListener(evt -> navigateToPanel(new ViewPage()));
        // Updatebtn.addActionListener(evt -> navigateToPanel(new UpdateStudentPage()));
@@ -78,12 +70,7 @@ public class HomePage extends javax.swing.JPanel {
         Addbtn.setText("ADD");
 
         Viewbtn.setText("View");
-        Viewbtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ViewbtnActionPerformed(evt);
-            }
-        });
-
+       
         Updatebtn.setText("Update");
 
         Deletebtn.setText("Delete");
@@ -158,9 +145,7 @@ public class HomePage extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ViewbtnActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        navigateToPanel(new ViewPage());
-    }                                       
+                                          
 
     private void navigateToPanel(javax.swing.JPanel newPanel) {
         java.awt.Window parentWindow = javax.swing.SwingUtilities.getWindowAncestor(this);

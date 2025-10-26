@@ -1,4 +1,3 @@
 10001,Farah,21,Female,compu,3.92
 10002,yahya,21,Male,compu,3.64
 3,omar,25,Male,electro,2.4
-100,Amar,25,Male,electro,1.2

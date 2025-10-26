@@ -31,7 +31,6 @@ public class AddStudent extends javax.swing.JFrame {
         ageLabel.setText("Age:");
 
         idSText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        idSText.setText("9269");
         idSText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 idSTextActionPerformed(evt);
@@ -68,7 +67,6 @@ public class AddStudent extends javax.swing.JFrame {
         });
 
         ageText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        ageText.setText("20");
         ageText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ageTextActionPerformed(evt);
@@ -76,7 +74,6 @@ public class AddStudent extends javax.swing.JFrame {
         });
 
         nameText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        nameText.setText("Habiba");
         nameText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameTextActionPerformed(evt);
@@ -84,7 +81,6 @@ public class AddStudent extends javax.swing.JFrame {
         });
 
         gpaText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        gpaText.setText("3.5");
         gpaText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 gpaTextActionPerformed(evt);
@@ -92,7 +88,6 @@ public class AddStudent extends javax.swing.JFrame {
         });
 
         departmentText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        departmentText.setText("Compu");
         departmentText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 departmentTextActionPerformed(evt);
@@ -210,7 +205,7 @@ public class AddStudent extends javax.swing.JFrame {
 
     private void saveLableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveLableActionPerformed
         String strID = idSText.getText().trim();
-        String name = nameText.getText().trim();
+        
         String strAge = ageText.getText().trim();
         String Department = departmentText.getText().trim();
         String strGPA = gpaText.getText();
@@ -218,6 +213,7 @@ public class AddStudent extends javax.swing.JFrame {
         if (strID.isEmpty() || name.isEmpty() || strAge.isEmpty() || strGPA.isEmpty() || Department.isEmpty()) {
             JOptionPane.showMessageDialog(this, "All fields are required!", "Error", JOptionPane.ERROR_MESSAGE);
             return;
+            
         }
         int id;
         double GPA;

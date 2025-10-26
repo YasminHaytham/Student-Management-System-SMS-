@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
+
 package System1;
 
 import java.util.ArrayList;
@@ -123,7 +120,14 @@ public class DeletePanel extends javax.swing.JPanel {
                 boolean deleted = user.DeleteStudent(studentId);
 
                 if (deleted) {
-                    studentsDB.saveToFile();
+                    try {
+                        studentsDB.saveToFile();
+                    } catch (IllegalArgumentException e) {
+                        JOptionPane.showMessageDialog(this, "Error saving changes to file: " + e.getMessage(), "Error",
+                                JOptionPane.ERROR_MESSAGE);
+                        return;
+                    }
+                    
                     DefaultTableModel model = (DefaultTableModel) StudentsTable.getModel();
                     model.removeRow(row);
                     JOptionPane.showMessageDialog(this, "Student deleted successfully!", "Success",

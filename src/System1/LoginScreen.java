@@ -1,3 +1,4 @@
+package System1;
 import javax.swing.JOptionPane;
 
 public class LoginScreen extends javax.swing.JFrame {
@@ -93,16 +94,20 @@ public class LoginScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_textUsernameActionPerformed
 
+   
+
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         String username=textUsername.getText();
         String password=textPassword.getText();
         if(username.equals("admin")&&password.equals("Admin1234")){
-            HomePage h=new Home();
-            h.setVisible(true);
-            this.setVisible(false);
-            AddStudent add=new AddStudent();
-            add.setVisible(true);
-            h.setVisible(false);
+         javax.swing.JFrame mainFrame = new javax.swing.JFrame("Student Management System");
+        mainFrame.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
+        mainFrame.setSize(900, 500);
+        mainFrame.setLocationRelativeTo(null);
+        HomePage h=new HomePage();
+         mainFrame.add(h);
+        mainFrame.setVisible(true);
+        this.dispose(); 
         }
         else{
             JOptionPane.showMessageDialog(this,"Invalid Username or Password.","Error",JOptionPane.ERROR_MESSAGE);

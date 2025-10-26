@@ -4,6 +4,12 @@
  */
 package System1;
 import java.util.ArrayList;
+<<<<<<< Updated upstream
+=======
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+>>>>>>> Stashed changes
 import java.util.List;
 
 import javax.swing.table.DefaultTableModel;
@@ -43,13 +49,13 @@ public class ViewPage extends javax.swing.JPanel {
     }
 
         private void sortStudentsByID() {
-        students.sort((s1, s2) -> Integer.compare(s1.getStudent_ID(), s2.getStudent_ID()));
+        Collections.sort(students, Comparator.comparingInt(student -> student.getStudent_ID()));
         loadStudentsToTable();
     }
 
     private void sortStudentsByName() {
         students.sort((s1, s2) -> s1.getFull_Name().compareToIgnoreCase(s2.getFull_Name()));
-        loadStudentsToTable();
+       loadStudentsToTable();
     }
 
     /**

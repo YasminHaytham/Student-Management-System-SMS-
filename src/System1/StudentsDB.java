@@ -100,7 +100,7 @@ public class StudentsDB {
                 writer.println(record.lineRepresentation());
             }
         } catch (IOException e) {
-            System.out.println( "Error saving to The file : " + e.getMessage());
+            throw new IllegalArgumentException ( "Error saving to The file");
         }
     }
 

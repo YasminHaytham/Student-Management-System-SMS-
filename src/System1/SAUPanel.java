@@ -4,12 +4,13 @@
  */
 package System1;
 
-import java.util.ArrayList;
+import java.awt.Dimension;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-
 import javax.swing.JOptionPane;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -17,14 +18,18 @@ import javax.swing.table.DefaultTableModel;
  * @author Yasmin Haytham
  */
 public class SAUPanel extends javax.swing.JPanel {
+
     private List<Student> students;
     private StudentsDB database;
+
     public SAUPanel() {
         initComponents();
         jScrollPane1.setVisible(false);
+        saveButton.setEnabled(false);
         database = new StudentsDB("Students.txt");
         students = this.database.returnAllRecords();
         Collections.sort(students, Comparator.comparingInt(student -> student.getStudent_ID()));
+        setTableListener();
     }
 
     /**
@@ -40,10 +45,10 @@ public class SAUPanel extends javax.swing.JPanel {
         NameOrID = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         StudentsTable = new javax.swing.JTable();
+        saveButton = new javax.swing.JButton();
 
         jLabel2.setText("Search By ID or Name:");
-        NameOrID.setText("");
-        NameOrID.setPreferredSize(new java.awt.Dimension(200, 30));
+
         NameOrID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NameOrIDActionPerformed(evt);
@@ -63,7 +68,7 @@ public class SAUPanel extends javax.swing.JPanel {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Float.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -71,6 +76,13 @@ public class SAUPanel extends javax.swing.JPanel {
             }
         });
         jScrollPane1.setViewportView(StudentsTable);
+        NameOrID.setPreferredSize(new Dimension(250,30));
+        saveButton.setText("Save");
+        saveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -79,9 +91,14 @@ public class SAUPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(NameOrID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(NameOrID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(saveButton)
+                        .addGap(34, 34, 34))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 765, Short.MAX_VALUE)
@@ -93,70 +110,150 @@ public class SAUPanel extends javax.swing.JPanel {
                 .addGap(25, 25, 25)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(NameOrID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(NameOrID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(saveButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void NameOrIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameOrIDActionPerformed
-       String searchText = NameOrID.getText().trim(); 
-       if (searchText.isEmpty())
-       {
-          JOptionPane.showMessageDialog(this, "Field is EMPTY !!", "ERROR", JOptionPane.INFORMATION_MESSAGE);
-          return;
-       }
-       
-       loadStudentsToTable(searchText);
-       
+        String searchText = NameOrID.getText().trim();
+        if (searchText.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Field is EMPTY !!", "ERROR", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        loadStudentsToTable(searchText);
+
     }//GEN-LAST:event_NameOrIDActionPerformed
 
-private void loadStudentsToTable(String searchText) {
+
+    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
+        saveChanges();
+    }//GEN-LAST:event_saveButtonActionPerformed
+
+     private void setTableListener() {
+        StudentsTable.getModel().addTableModelListener(new TableModelListener() {
+            @Override
+            public void tableChanged(TableModelEvent e) {
+                // Enable save button when table is modified
+                if (e.getType() == TableModelEvent.UPDATE) {
+                    saveButton.setEnabled(true);
+                }
+            }
+        });
+    }
+
+    private void loadStudentsToTable(String searchText) {
         DefaultTableModel model = (DefaultTableModel) StudentsTable.getModel();
         model.setRowCount(0);
-        boolean flag =false;
-        if (students.isEmpty())
-        {
-            JOptionPane.showMessageDialog(this, "Students File is Empty", "ERROR", JOptionPane.INFORMATION_MESSAGE);  
-          return;
+        boolean flag = false;
+        if (students.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Students File is Empty", "ERROR", JOptionPane.ERROR_MESSAGE);
+            return;
         }
-        
+
         for (Student student : students) {
-            if (student.lineRepresentation().toLowerCase().contains(searchText.toLowerCase()))
-            {
-                flag=true;
-            int studentId = student.getStudent_ID();
-            String fullName = student.getFull_Name();
-            int age = student.getAge();
-            String gender = student.getGender();
-            String department = student.getDepartment();
-            float gpa = student.getGPA();
-            model.addRow(new Object[] { studentId, fullName, age, gender, department, gpa });
+            if (student.lineRepresentation().toLowerCase().contains(searchText.toLowerCase())) {
+                flag = true;
+                int studentId = student.getStudent_ID();
+                String fullName = student.getFull_Name();
+                int age = student.getAge();
+                String gender = student.getGender();
+                String department = student.getDepartment();
+                float gpa = student.getGPA();
+                model.addRow(new Object[]{studentId, fullName, age, gender, department, gpa});
+            }
         }
-    }
-    if (flag)
-    {
-        jScrollPane1.setVisible(true);
-        jScrollPane1.revalidate();
-        jScrollPane1.repaint();
-        StudentsTable.revalidate();
-        StudentsTable.repaint();
-        this.revalidate();
-        this.repaint();
-    }
-    else
-        {
-            JOptionPane.showMessageDialog(this, "Student NOT FOUND\nIncorrect ID or Name", "NOT FOUND", JOptionPane.INFORMATION_MESSAGE);  
+        if (flag) {
+            jScrollPane1.setVisible(true);
+            jScrollPane1.revalidate();
+            jScrollPane1.repaint();
+            StudentsTable.revalidate();
+            StudentsTable.repaint();
+            this.revalidate();
+            this.repaint();
+        } else {
+            JOptionPane.showMessageDialog(this, "Student NOT FOUND\nIncorrect ID or Name", "NOT FOUND", JOptionPane.INFORMATION_MESSAGE);
             jScrollPane1.setVisible(false);
             return;
         }
-        
-}
+
+    }
+
+    private void saveChanges() {
+        DefaultTableModel model = (DefaultTableModel) StudentsTable.getModel();
+
+        for (int row = 0; row < model.getRowCount(); row++) {
+            int studentId = (int) model.getValueAt(row, 0);
+            String fullName = (String) model.getValueAt(row, 1);
+            int age = Integer.parseInt(model.getValueAt(row, 2).toString());
+            String gender = (String) model.getValueAt(row, 3);
+            String department = (String) model.getValueAt(row, 4);
+            float gpa = (Float) model.getValueAt(row, 5);
+
+            for (Student student : students) {
+                if (student.getStudent_ID() == studentId) {
+                    try {
+                        student.setFull_Name(fullName);
+                    } catch (IllegalArgumentException e) {
+                        JOptionPane.showMessageDialog(this, "For ID: " + student.getStudent_ID() + "\n" + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE
+                        );
+                        return;
+                    }
+                    try {
+                        student.setAge(age);
+                    } catch (IllegalArgumentException e) {
+                        JOptionPane.showMessageDialog(this, "For ID: " + student.getStudent_ID() + "\n" + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE
+                        );
+                        return;
+                    }
+                    try {
+                        student.setGender(gender);
+                    } catch (IllegalArgumentException e) {
+                        JOptionPane.showMessageDialog(this, "For ID: " + student.getStudent_ID() + "\n" + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE
+                        );
+                        return;
+                    }
+                    try {
+                        student.setDepartment(department);
+                    } catch (IllegalArgumentException e) {
+                        JOptionPane.showMessageDialog(this, "For ID: " + student.getStudent_ID() + "\n" + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE
+                        );
+                        return;
+                    }
+                    try {
+                        student.setGPA(gpa);
+                    } catch (IllegalArgumentException e) {
+                        JOptionPane.showMessageDialog(this, "For ID: " + student.getStudent_ID() + "\n" + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE
+                        );
+                        return;
+                    }
+                    break;
+
+                }
+            }
+           
+        }
+         try {
+                database.saveToFile();
+                JOptionPane.showMessageDialog(this, "Changes Saved Successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+                saveButton.setEnabled(false);
+                return;
+            } catch (IllegalArgumentException e) {
+                JOptionPane.showMessageDialog(this, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField NameOrID;
     private javax.swing.JTable StudentsTable;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton saveButton;
     // End of variables declaration//GEN-END:variables
 }

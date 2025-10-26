@@ -9,27 +9,8 @@ public class HomePage extends javax.swing.JPanel {
     }
 
     private void setupButtonListeners() {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-       Addbtn.addActionListener(evt -> navigateToPanel(new AddStudent()));
-=======
+
       // Addbtn.addActionListener(evt -> navigateToPanel(new AddStudent()));
->>>>>>> Stashed changes
-=======
-      // Addbtn.addActionListener(evt -> navigateToPanel(new AddStudent()));
->>>>>>> Stashed changes
-=======
-      // Addbtn.addActionListener(evt -> navigateToPanel(new AddStudent()));
->>>>>>> Stashed changes
-=======
-      // Addbtn.addActionListener(evt -> navigateToPanel(new AddStudent()));
->>>>>>> Stashed changes
-=======
-      // Addbtn.addActionListener(evt -> navigateToPanel(new AddStudent()));
->>>>>>> Stashed changes
        Viewbtn.addActionListener(evt -> navigateToPanel(new ViewPage()));
        Updatebtn.addActionListener(evt -> navigateToPanel(new SAUPanel()));
         Deletebtn.addActionListener(evt -> navigateToPanel(new DeletePanel()));

@@ -1,10 +1,12 @@
+ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-
+import javax.swing.SwingUtilities;
 public class LoginScreen extends javax.swing.JFrame {
 
     
     public LoginScreen() {
         initComponents();
+       
     }
 
     /**
@@ -33,6 +35,7 @@ public class LoginScreen extends javax.swing.JFrame {
         LPassword.setText(" Password");
 
         textUsername.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        textUsername.setText("admin");
         textUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textUsernameActionPerformed(evt);
@@ -40,6 +43,7 @@ public class LoginScreen extends javax.swing.JFrame {
         });
 
         textPassword.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        textPassword.setText("Admin1234");
 
         btnLogin.setBackground(new java.awt.Color(242, 242, 242));
         btnLogin.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -97,12 +101,24 @@ public class LoginScreen extends javax.swing.JFrame {
         String username=textUsername.getText();
         String password=textPassword.getText();
         if(username.equals("admin")&&password.equals("Admin1234")){
-            HomePage h=new Home();
-            h.setVisible(true);
-            this.setVisible(false);
-            AddStudent add=new AddStudent();
+           // HomePage h=new HomePage();
+           // h.setVisible(true);
+           JFrame frame = new JFrame("Add Student");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(800, 600);
+        frame.setLocationRelativeTo(null);
+
+        
+        frame.add(new addstudentt());  
+
+        frame.setVisible(true);
+
+        this.dispose();
+            
+            addstudentt add=new addstudentt();
             add.setVisible(true);
-            h.setVisible(false);
+            this.setVisible(false);
+           // h.setVisible(false);
         }
         else{
             JOptionPane.showMessageDialog(this,"Invalid Username or Password.","Error",JOptionPane.ERROR_MESSAGE);
@@ -116,7 +132,7 @@ public class LoginScreen extends javax.swing.JFrame {
        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LoginScreen().setVisible(true);
+            new LoginScreen().setVisible(true);
                  
             }
         });

@@ -91,7 +91,7 @@ public class LoginScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void textUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textUsernameActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_textUsernameActionPerformed
 
    

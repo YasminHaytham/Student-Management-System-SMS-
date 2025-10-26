@@ -76,7 +76,7 @@ public class SAUPanel extends javax.swing.JPanel {
             }
         });
         jScrollPane1.setViewportView(StudentsTable);
-        NameOrID.setPreferredSize(new Dimension(250,30));
+
         saveButton.setText("Save");
         saveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,20 +91,14 @@ public class SAUPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-<<<<<<< Updated upstream
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(NameOrID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(NameOrID, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(saveButton)
-                        .addGap(34, 34, 34))))
-=======
-                    .addComponent(jLabel2)
-                    .addComponent(NameOrID, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
->>>>>>> Stashed changes
+                        .addGap(33, 33, 33))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 979, Short.MAX_VALUE)
@@ -120,13 +114,8 @@ public class SAUPanel extends javax.swing.JPanel {
                     .addComponent(NameOrID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(saveButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-<<<<<<< Updated upstream
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
-=======
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(238, Short.MAX_VALUE))
->>>>>>> Stashed changes
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 699, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -168,7 +157,9 @@ public class SAUPanel extends javax.swing.JPanel {
         }
 
         for (Student student : students) {
-            if (student.lineRepresentation().toLowerCase().contains(searchText.toLowerCase())) {
+              String stuStr = student.lineRepresentation();
+            String[] splitstuStr =  stuStr.split(",");
+            if ( splitstuStr[0].toLowerCase().contains(searchText.toLowerCase()) ||  splitstuStr[1].toLowerCase().contains(searchText.toLowerCase()) ) {
                 flag = true;
                 int studentId = student.getStudent_ID();
                 String fullName = student.getFull_Name();

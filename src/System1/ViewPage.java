@@ -4,12 +4,9 @@
  */
 package System1;
 import java.util.ArrayList;
-<<<<<<< Updated upstream
-=======
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
->>>>>>> Stashed changes
 import java.util.List;
 
 import javax.swing.table.DefaultTableModel;

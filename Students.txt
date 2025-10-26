@@ -1,10 +1,7 @@
-<<<<<<< Updated upstream
-4324,yazo,19,Female,CCE,3.0
-5567,maya,30,female,cce,2.0
-4324,Yazo,20,Female,CCE,3.3
-=======
->>>>>>> Stashed changes
-4324,Wzo,20,Female,CCE,3.3
+434,aazo,20,Female,CCE,3.3
 4000,cazom,20,Female,CCE,3.3
 4100,bazon,20,Female,CCE,3.3
-434,aazo,20,Female,CCE,3.3
+4324,Wzo,21,Female,CCE,3.3
+4324,Yazo,20,Female,CCE,3.3
+4324,Wzo,20,Female,CCE,3.3
+5567,maya,30,female,cce,2.0

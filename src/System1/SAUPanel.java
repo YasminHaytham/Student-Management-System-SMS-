@@ -5,6 +5,10 @@
 package System1;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -13,13 +17,14 @@ import javax.swing.table.DefaultTableModel;
  * @author Yasmin Haytham
  */
 public class SAUPanel extends javax.swing.JPanel {
-    private ArrayList<Student> students;
+    private List<Student> students;
     private StudentsDB database;
     public SAUPanel() {
         initComponents();
         jScrollPane1.setVisible(false);
         database = new StudentsDB("Students.txt");
         students = this.database.returnAllRecords();
+        Collections.sort(students, Comparator.comparingInt(student -> student.getStudent_ID()));
     }
 
     /**
@@ -132,9 +137,7 @@ private void loadStudentsToTable(String searchText) {
     }
     if (flag)
     {
-          jScrollPane1.setVisible(true);
-        
-        // FORCE REFRESH - Add these lines:
+        jScrollPane1.setVisible(true);
         jScrollPane1.revalidate();
         jScrollPane1.repaint();
         StudentsTable.revalidate();

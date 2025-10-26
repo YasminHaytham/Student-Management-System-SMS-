@@ -12,7 +12,11 @@ public class HomePage extends javax.swing.JPanel {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
        Addbtn.addActionListener(evt -> navigateToPanel(new AddStudent()));
+=======
+      // Addbtn.addActionListener(evt -> navigateToPanel(new AddStudent()));
+>>>>>>> Stashed changes
 =======
       // Addbtn.addActionListener(evt -> navigateToPanel(new AddStudent()));
 >>>>>>> Stashed changes

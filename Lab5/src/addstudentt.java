@@ -34,7 +34,6 @@ public class addstudentt extends javax.swing.JPanel {
         ageText = new javax.swing.JTextField();
 
         nameText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        nameText.setText("h");
         nameText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameTextActionPerformed(evt);
@@ -42,7 +41,6 @@ public class addstudentt extends javax.swing.JPanel {
         });
 
         gpaText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        gpaText.setText("3");
         gpaText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 gpaTextActionPerformed(evt);
@@ -50,7 +48,6 @@ public class addstudentt extends javax.swing.JPanel {
         });
 
         departmentText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        departmentText.setText("c");
         departmentText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 departmentTextActionPerformed(evt);
@@ -58,7 +55,7 @@ public class addstudentt extends javax.swing.JPanel {
         });
 
         ageComboBox.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        ageComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Male", "Female", "" }));
+        ageComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Male", "Female" }));
         ageComboBox.setToolTipText("");
         ageComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,7 +93,6 @@ public class addstudentt extends javax.swing.JPanel {
         });
 
         ageText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        ageText.setText("20");
         ageText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ageTextActionPerformed(evt);

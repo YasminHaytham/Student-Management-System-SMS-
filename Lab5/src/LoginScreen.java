@@ -36,7 +36,6 @@ public class LoginScreen extends javax.swing.JFrame {
         LPassword.setText(" Password");
 
         textUsername.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        textUsername.setText("admin");
         textUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textUsernameActionPerformed(evt);
@@ -44,7 +43,6 @@ public class LoginScreen extends javax.swing.JFrame {
         });
 
         textPassword.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        textPassword.setText("Admin1234");
 
         btnLogin.setBackground(new java.awt.Color(242, 242, 242));
         btnLogin.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N

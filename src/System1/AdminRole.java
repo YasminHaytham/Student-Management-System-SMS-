@@ -11,12 +11,13 @@ public class AdminRole {
         AdminRole.studentsDB = studentsDB;
     }
 
-    public void AddStudent( String Full_Name, int age, String Gender, String Department, float GPA) {
-        Student newStudent = new Student ( Full_Name, age, Gender, Department, GPA);
+    public boolean AddStudent(String Full_Name, int age, String Gender, String Department, float GPA) {
+        Student newStudent = new Student (Full_Name, age, Gender, Department, GPA);
         studentsDB.readFromFile();
         createID(newStudent);
         studentsDB.insertRecord(newStudent);
         studentsDB.saveToFile();
+        return true;
     }
        public static void createID(Student newStudent)
     {
@@ -24,13 +25,16 @@ public class AdminRole {
         if ( records.isEmpty())
         {
             newStudent.setStudent_ID(1000);
+        
         }
         else 
         {
         Collections.sort(records, Comparator.comparingInt(student -> student.getStudent_ID()));
         int ID = records.get(records.size()-1).getStudent_ID();
         newStudent.setStudent_ID(ID+1);
+       
         }
+        
         
     }
 

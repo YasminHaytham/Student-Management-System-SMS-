@@ -33,7 +33,7 @@ public class Student {
 
         if (Gender == null || Gender.trim().isEmpty()) {
             throw new IllegalArgumentException("Gender is Empty!!");
-        } else if (Gender.equalsIgnoreCase("male") || Gender.equalsIgnoreCase("female")) {
+        } else if (!Gender.equalsIgnoreCase("male") && !Gender.equalsIgnoreCase("female")) {
             throw new IllegalArgumentException("Invalid Gender !!");
         } else {
             this.Gender = Gender;
@@ -96,7 +96,7 @@ public class Student {
     public void setGender(String Gender) {
         if (Gender == null || Gender.trim().isEmpty()) {
             throw new IllegalArgumentException("Gender is Empty!!");
-        } else if (Gender.toLowerCase().equals("male") || Gender.toLowerCase().equals("Female")) {
+        } else if (!Gender.equalsIgnoreCase("male") && !Gender.equalsIgnoreCase("female")) {
             throw new IllegalArgumentException("Invalid Gender !!");
         } else {
             this.Gender = Gender;
@@ -130,7 +130,7 @@ public class Student {
     }
 
     public String lineRepresentation() {
-        return this.Student_ID + "," + this.Full_Name + "," + this.age + "," + this.Gender + "," + this.Department + "," + this.GPA;
+        return this.Student_ID + "," + this.Full_Name + "," + this.age + "," + this.Gender.substring(0, 1).toUpperCase() + Gender.substring(1).toLowerCase() + "," + this.Department + "," + this.GPA;
     }
 
     public int getSearchKey() {

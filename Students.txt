@@ -1,4 +1,4 @@
-434,aazo,20,Female,CCE,3.3
+434,yazo,20,Female,CCE,3.3
 4000,cazom,20,Female,CCE,3.3
-4100,bazon,20,Female,CCE,3.3
-5567,maya,30,female,cce,2.0
+4001,f,2,Female,d,2.0
+4002,yahya,21,Male,computer and communication,3.66

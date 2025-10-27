@@ -10,7 +10,7 @@ public class HomePage extends javax.swing.JPanel {
 
     private void setupButtonListeners() {
 
-      // Addbtn.addActionListener(evt -> navigateToPanel(new AddStudent()));
+      Addbtn.addActionListener(evt -> navigateToPanel(new AddStudent()));
        Viewbtn.addActionListener(evt -> navigateToPanel(new ViewPage()));
        Updatebtn.addActionListener(evt -> navigateToPanel(new SAUPanel()));
         Deletebtn.addActionListener(evt -> navigateToPanel(new DeletePanel()));

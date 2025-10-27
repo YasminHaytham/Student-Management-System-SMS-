@@ -1,10 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
+
 package System1;
 
 import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -15,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 public class DeletePanel extends javax.swing.JPanel {
     StudentsDB studentsDB = new StudentsDB("students.txt");
     AdminRole user = new AdminRole(studentsDB);
-    ArrayList<Student> students = user.ViewStudents();
+    List<Student> students = user.ViewStudents();
 
     public DeletePanel() {
         initComponents();
@@ -75,19 +74,19 @@ public class DeletePanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 821, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 821, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(DeleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
+                .addGap(15, 15, 15))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(DeleteBtn)
-                .addGap(0, 12, Short.MAX_VALUE))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -123,7 +122,14 @@ public class DeletePanel extends javax.swing.JPanel {
                 boolean deleted = user.DeleteStudent(studentId);
 
                 if (deleted) {
-                    studentsDB.saveToFile();
+                    try {
+                        studentsDB.saveToFile();
+                    } catch (IllegalArgumentException e) {
+                        JOptionPane.showMessageDialog(this, "Error saving changes to file: " + e.getMessage(), "Error",
+                                JOptionPane.ERROR_MESSAGE);
+                        return;
+                    }
+                    
                     DefaultTableModel model = (DefaultTableModel) StudentsTable.getModel();
                     model.removeRow(row);
                     JOptionPane.showMessageDialog(this, "Student deleted successfully!", "Success",

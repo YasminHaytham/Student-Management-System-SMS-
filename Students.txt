@@ -1,2 +1,4 @@
-7126,Farah,21,Female,compu,3.92
-2762,Yahya,21,Male,compu,3.62
+434,aazo,20,Female,CCE,3.3
+4000,cazom,20,Female,CCE,3.3
+4100,bazon,20,Female,CCE,3.3
+5567,maya,30,female,cce,2.0

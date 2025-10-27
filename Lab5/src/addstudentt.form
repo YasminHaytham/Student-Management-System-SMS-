@@ -17,49 +17,45 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace pref="127" max="32767" attributes="0"/>
+              <EmptySpace pref="49" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
+                      <Component id="saveLable" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="ageComboBox" alignment="1" min="-2" pref="101" max="-2" attributes="0"/>
-                          <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="gpaLable" min="-2" pref="120" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="gpaText" min="-2" pref="101" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="nameLable" min="-2" max="-2" attributes="0"/>
-                                              <Component id="idSLable" min="-2" max="-2" attributes="0"/>
-                                              <Component id="ageLabel" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
-                                              <Component id="genderLabel" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="205" pref="205" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="gpaLable" min="-2" pref="120" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="179" max="-2" attributes="0"/>
+                              <Component id="gpaText" min="-2" pref="101" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="nameLable" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ageLabel" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
+                                          <Component id="genderLabel" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="departmentLable" min="-2" pref="107" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="192" max="-2" attributes="0"/>
-                                      </Group>
+                                      <EmptySpace min="-2" pref="211" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="departmentText" alignment="1" min="-2" pref="101" max="-2" attributes="0"/>
-                                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                          <Component id="ageText" min="-2" pref="101" max="-2" attributes="0"/>
-                                          <Component id="nameText" alignment="1" min="-2" pref="101" max="-2" attributes="0"/>
-                                          <Component id="idSText" min="-2" pref="101" max="-2" attributes="0"/>
-                                      </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="departmentLable" min="-2" pref="107" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="192" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="departmentText" alignment="1" min="-2" pref="101" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="ageText" min="-2" pref="101" max="-2" attributes="0"/>
+                                      <Component id="nameText" alignment="1" min="-2" pref="101" max="-2" attributes="0"/>
+                                      <Component id="ageComboBox" alignment="1" min="-2" pref="101" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="150" pref="150" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="saveLable" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -68,12 +64,7 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="idSText" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="idSLable" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="nameText" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="nameLable" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -111,6 +102,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
         </Property>
+        <Property name="text" type="java.lang.String" value="h"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nameTextActionPerformed"/>
@@ -121,6 +113,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
         </Property>
+        <Property name="text" type="java.lang.String" value="3"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gpaTextActionPerformed"/>
@@ -131,6 +124,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
         </Property>
+        <Property name="text" type="java.lang.String" value="c"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="departmentTextActionPerformed"/>
@@ -169,16 +163,6 @@
         <Property name="text" type="java.lang.String" value="Age:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="idSText">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="18" style="0"/>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="idSTextActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JLabel" name="nameLable">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -212,17 +196,6 @@
         <Property name="text" type="java.lang.String" value="Gender:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="idSLable">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="18" style="0"/>
-        </Property>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="99" green="33" red="0" type="rgb"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Student ID:"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="departmentLable">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -253,6 +226,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
         </Property>
+        <Property name="text" type="java.lang.String" value="20"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ageTextActionPerformed"/>

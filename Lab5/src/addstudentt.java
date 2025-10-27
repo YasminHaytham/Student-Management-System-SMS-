@@ -1,5 +1,7 @@
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
+import System1.AdminRole;
+import System1.StudentsDB;
 
 public class addstudentt extends javax.swing.JPanel {
 
@@ -24,16 +26,15 @@ public class addstudentt extends javax.swing.JPanel {
         departmentText = new javax.swing.JTextField();
         ageComboBox = new javax.swing.JComboBox<>();
         ageLabel = new javax.swing.JLabel();
-        idSText = new javax.swing.JTextField();
         nameLable = new javax.swing.JLabel();
         gpaLable = new javax.swing.JLabel();
         genderLabel = new javax.swing.JLabel();
-        idSLable = new javax.swing.JLabel();
         departmentLable = new javax.swing.JLabel();
         saveLable = new javax.swing.JButton();
         ageText = new javax.swing.JTextField();
 
         nameText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        nameText.setText("h");
         nameText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameTextActionPerformed(evt);
@@ -41,6 +42,7 @@ public class addstudentt extends javax.swing.JPanel {
         });
 
         gpaText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        gpaText.setText("3");
         gpaText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 gpaTextActionPerformed(evt);
@@ -48,6 +50,7 @@ public class addstudentt extends javax.swing.JPanel {
         });
 
         departmentText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        departmentText.setText("c");
         departmentText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 departmentTextActionPerformed(evt);
@@ -67,13 +70,6 @@ public class addstudentt extends javax.swing.JPanel {
         ageLabel.setForeground(new java.awt.Color(0, 51, 153));
         ageLabel.setText("Age:");
 
-        idSText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        idSText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idSTextActionPerformed(evt);
-            }
-        });
-
         nameLable.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         nameLable.setForeground(new java.awt.Color(0, 51, 153));
         nameLable.setText("Full Name:");
@@ -85,10 +81,6 @@ public class addstudentt extends javax.swing.JPanel {
         genderLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         genderLabel.setForeground(new java.awt.Color(0, 51, 153));
         genderLabel.setText("Gender:");
-
-        idSLable.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        idSLable.setForeground(new java.awt.Color(0, 51, 153));
-        idSLable.setText("Student ID:");
 
         departmentLable.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         departmentLable.setForeground(new java.awt.Color(0, 51, 153));
@@ -104,6 +96,7 @@ public class addstudentt extends javax.swing.JPanel {
         });
 
         ageText.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        ageText.setText("20");
         ageText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ageTextActionPerformed(evt);
@@ -115,47 +108,40 @@ public class addstudentt extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(127, Short.MAX_VALUE)
+                .addContainerGap(49, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ageComboBox, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(gpaLable, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(gpaText, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(nameLable)
-                                                .addComponent(idSLable)
-                                                .addComponent(ageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(genderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGap(205, 205, 205))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(departmentLable, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(192, 192, 192)))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(departmentText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(ageText, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(nameText, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(idSText, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                        .addGap(150, 150, 150))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(saveLable)
-                        .addGap(76, 76, 76))))
+                        .addGap(76, 76, 76))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(gpaLable, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(179, 179, 179)
+                                .addComponent(gpaText, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(nameLable)
+                                            .addComponent(ageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(genderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(211, 211, 211))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(departmentLable, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(192, 192, 192)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(departmentText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(ageText, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(nameText, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(ageComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(150, 150, 150))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(idSText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(idSLable))
-                .addGap(15, 15, 15)
+                .addGap(76, 76, 76)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nameLable))
@@ -197,18 +183,14 @@ public class addstudentt extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_ageComboBoxActionPerformed
 
-    private void idSTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idSTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_idSTextActionPerformed
-
     private void saveLableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveLableActionPerformed
-       String strID = idSText.getText().trim();
+    
     String name = nameText.getText().trim();
     String strAge = ageText.getText().trim();
     String Department = departmentText.getText().trim();
     String strGPA = gpaText.getText();
 
-    if (strID.isEmpty() || name.isEmpty() || strAge.isEmpty() || strGPA.isEmpty() || Department.isEmpty()) {
+    if (name.isEmpty() || strAge.isEmpty() || strGPA.isEmpty() || Department.isEmpty()) {
         JOptionPane.showMessageDialog(
             SwingUtilities.getWindowAncestor(this),
             "All fields are required!",
@@ -218,31 +200,12 @@ public class addstudentt extends javax.swing.JPanel {
         return;
     }
 
-    int id;
+   
     double GPA;
     int age;
 
-    try {
-        id = Integer.parseInt(strID);
-        if (id <= 0) {
-            JOptionPane.showMessageDialog(
-                SwingUtilities.getWindowAncestor(this),
-                "ID must be a positive number.",
-                "Invalid ID",
-                JOptionPane.WARNING_MESSAGE
-            );
-            return;
-        }
-    } catch (NumberFormatException e) {
-        JOptionPane.showMessageDialog(
-            SwingUtilities.getWindowAncestor(this),
-            "ID must be numeric.",
-            "Invalid ID",
-            JOptionPane.ERROR_MESSAGE
-        );
-        return;
-    }
-
+    
+   
     try {
         age = Integer.parseInt(strAge);
         if (age <= 0 || age > 100) {
@@ -295,13 +258,16 @@ public class addstudentt extends javax.swing.JPanel {
         );
         return;
     }
-
+    AdminRole adds= new AdminRole(AdminRole.studentsDB);
+     adds.AddStudent(name,age,gender,Department, (float) GPA);
+     
     JOptionPane.showMessageDialog(
         SwingUtilities.getWindowAncestor(this),
         "Student Added Successfully!",
         "Success",
         JOptionPane.INFORMATION_MESSAGE
     );
+    
     }//GEN-LAST:event_saveLableActionPerformed
 
     private void ageTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ageTextActionPerformed
@@ -318,8 +284,6 @@ public class addstudentt extends javax.swing.JPanel {
     private javax.swing.JLabel genderLabel;
     private javax.swing.JLabel gpaLable;
     private javax.swing.JTextField gpaText;
-    private javax.swing.JLabel idSLable;
-    private javax.swing.JTextField idSText;
     private javax.swing.JLabel nameLable;
     private javax.swing.JTextField nameText;
     private javax.swing.JButton saveLable;

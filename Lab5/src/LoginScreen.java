@@ -1,6 +1,7 @@
- import javax.swing.JFrame;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.SwingUtilities;
+
+
 public class LoginScreen extends javax.swing.JFrame {
 
     

@@ -5,7 +5,7 @@ import java.util.Comparator;
 import java.util.List;
 
 public class AdminRole {
-    static StudentsDB studentsDB = new StudentsDB("Students.txt");
+    public static StudentsDB studentsDB = new StudentsDB("Students.txt");
 
     public AdminRole(StudentsDB studentsDB) {
         AdminRole.studentsDB = studentsDB;
